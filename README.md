@@ -1,1 +1,1 @@
-# Telgis-Frontend-python
+# Telgis-Frontend-JavaScript
