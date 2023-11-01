@@ -1,1 +1,0 @@
-# Telgis-Frontend-JavaScript
