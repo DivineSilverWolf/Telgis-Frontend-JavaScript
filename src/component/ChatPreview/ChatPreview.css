@@ -1,0 +1,28 @@
+
+.chat-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px;
+    height: 81px;
+    border-radius: 30px;
+    background: #FFFFFFCC;
+    cursor: pointer;
+}
+
+.chat-wrapper:hover {
+    background-color: white;
+}
+
+.chat-preview-wrapper {
+    margin-left: 20px;
+    font-family: Imprima, sans-serif;
+}
+
+.image-wrapper {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin-left: 8px;
+}

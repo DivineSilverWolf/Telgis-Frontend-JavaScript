@@ -1,0 +1,35 @@
+
+.find-wrapper {
+  background-color: #78D0B9;
+  height: 90px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 4px 24px 4px 0;
+}
+
+.img {
+  width: 35px;
+  height: 35px;
+}
+
+.b {
+  background: none;
+  border: 0;
+}
+
+.input {
+  width: 368px;
+  height: 52px;
+  background: #FFFFFFB2; 
+  border-radius: 20px;
+  border: 0;
+  padding-left: 30px;
+  font-size: 20px;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}

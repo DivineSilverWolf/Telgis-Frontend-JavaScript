@@ -1,0 +1,17 @@
+@font-face {
+	font-family: 'Imprima'; 
+	src: url(fonts/Imprima/Imprima-Regular.ttf); 
+}
+
+html, body {margin: 0; height: 100%; overflow: hidden;}
+
+body {
+  background: linear-gradient(180deg, #61BBB0 0%, #8CE5C5 100%);
+}
+
+.app {
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: flex-start; */
+  /* background-color: black; */
+}

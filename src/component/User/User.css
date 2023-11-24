@@ -1,0 +1,48 @@
+.user-info-container {
+  display: flex;
+  align-items: center;
+  width: 181px;
+  height: 67px;
+  border-radius: 20px;
+  border: 0.83px;
+  margin: 5px 20px;
+  transition: 0.5s ease;
+  cursor: pointer;
+  background-color: #FFFFFFCC;
+  padding: 10px 10px;
+}
+
+.user-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-name {
+  font-family: Imprima;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 19px;
+
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.chat-creator-container .user-info-container.selected {
+  background-color: #78D0B9;
+}
+
+ .chat-creator-container .user-info-container.noselected {
+  background-color: #FFFFFFCC;
+} 
+
+.chat-creator-container .user-info-container.noselected:hover {
+  background-color: white;
+  transition: none;
+}
+
+.find-users-container .noselected:hover {
+  background-color: white;
+  transition: none;
+} 

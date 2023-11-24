@@ -1,0 +1,43 @@
+.app-opp-container {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  justify-self: center;
+}
+
+.nav-options-container {
+  max-height: 212px;
+
+  border-radius: 20px;
+  background: #FFFFFF99;
+  padding: 8px 8px 8px 8px;
+  margin: 10px 10px;
+}
+
+.option-container {
+  background-color: #FFFFFF80;
+
+  width: 190px;
+  height: 45px;
+  border-radius: 20px;
+  margin-top: 5px;
+  padding-left: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap : 8px;
+  
+  font-family: Imprima;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #35829F;
+  cursor: pointer;
+}
+
+.option-container:hover {
+  background-color: white;
+}

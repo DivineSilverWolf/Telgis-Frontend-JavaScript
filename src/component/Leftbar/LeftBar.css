@@ -1,0 +1,21 @@
+@keyframes burger {
+  0% { transform: translate(-400px, 0);} 
+  100% { transform: translate(0, 0);}
+}
+
+.left-bar-wrapper {
+  position: relative;
+  display: inline-block;
+  animation: burger 0.1s ;
+}
+
+.show-chats-button {
+  height: 70px;
+  width: 70px;
+}
+
+.b {
+  position: relative;
+  height: 100px;
+  width: 100px;
+} 

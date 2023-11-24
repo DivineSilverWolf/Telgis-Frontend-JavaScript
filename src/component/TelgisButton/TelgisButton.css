@@ -1,0 +1,13 @@
+.telgis-button {
+  margin: 10px 10px;
+}
+
+.telgis-button {
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
+  background-color: #78D0B9;
+  border-radius: 50%;
+  border: none;
+  text-align: center;
+}

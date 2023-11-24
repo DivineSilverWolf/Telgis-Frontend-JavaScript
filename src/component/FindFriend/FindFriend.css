@@ -1,0 +1,19 @@
+.find-friend-container {
+  position: relative;
+}
+
+.find-users-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.users-container {
+  background-color: rgb(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 5px;
+  border-radius: 20px;
+
+}

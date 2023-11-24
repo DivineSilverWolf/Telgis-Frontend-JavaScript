@@ -1,0 +1,29 @@
+.user-actions-container {
+  display: flex;
+  border-radius: 20px;
+  list-style: none;
+
+}
+
+.user-actions-container > * + * {
+  margin-left: 10px;
+}
+
+
+.action-container {
+  background-color: #78D0B9;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+  padding: 6px 10px;
+}
+
+.action-container:hover {
+  background-color: white;
+}
+
+.action-item {
+  border-radius: 20px;
+  font-family: Imprima, sans-serif;
+  font-size: 14px;
+}
