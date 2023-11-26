@@ -1,12 +1,11 @@
 import { React, useState, useMemo} from 'react'
 import Emma from '../../images/Emma.jpg'
-import User from '../User/User'
 import './ChatCreator.css'
+import FindFriend from '../FindFriend/FindFriend'
 
 const ChatCreator = () => {
   const [chatName, setChatName] = useState('')
   const [friendName, setFriendName] = useState('')
-
   const [selectedFriends, setSelectedFriends] = useState([])
 
   const friends = [
@@ -38,10 +37,6 @@ const ChatCreator = () => {
     }
   ]
 
-  let filterdFriends = useMemo(() => {
-    return friends.filter(friend => friend.userName.toLowerCase().includes(friendName.toLowerCase()))
-  }, [friends, friendName]
-  )
 
 
   const handleClick = (e) => {
@@ -72,27 +67,9 @@ const ChatCreator = () => {
           placeholder='Название чата'
           onChange={e => setChatName(e.target.value)}
         />
-        <div className="find-users-container">
-            <input className="friend-name-input" 
-              type="text"
-              value={friendName}
-              placeholder='Поиск друга'
-              onChange={e => handleClick(e)}
-            />
 
-          <ul className="users-container">
-          {
-            filterdFriends.map(user => 
-              <User 
-                key={user.id} 
-                user={user}
-                handleClickToUser={(setIsSelected, isSelected, user) => handleClickToUser(setIsSelected, isSelected, user)}
-              />
-            )
-          }
+        <FindFriend/>
 
-          </ul>
-        </div>
         <button className="create-chat" onClick={createChat}>
           Создать чат
         </button>

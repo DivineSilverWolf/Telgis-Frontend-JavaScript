@@ -1,19 +1,49 @@
-.find-friend-container {
-  position: relative;
+.find-users-container {
+  width: 343px;
+  max-height: 449px;
+
+  background-color: rgb(255, 255, 255, 0.8);
+  text-align: center;
+
+  padding: 20px 20px;
+  border-radius: 20px;
 }
 
-.find-users-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.find-users-container::placeholder { /* Most modern browsers support this now. */
+  color:  #35829F;
+}
+
+.find-users-container > * + * {
+  margin-top: 20px;
+}
+
+.friend-name-input {
+  min-width: 100%;
+  border: none;
+  height: 40px;
+  border-radius: 20px;
+  padding-left: 10px;
+  box-sizing: border-box;
+
+  color: #35829F; 
+  font-family: Imprima, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.all-users {
+  padding: 20px 20px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 20px;
 }
 
 .users-container {
-  background-color: rgb(255, 255, 255, 0.8);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 5px;
-  border-radius: 20px;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 294px;
+}
 
+.users-container > * + *{
+  margin-top: 10px;
 }

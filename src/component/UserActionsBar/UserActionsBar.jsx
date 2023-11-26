@@ -24,7 +24,7 @@ const UserActionsBar = () => {
       actions.map(action => {
         return (
           <div className="action-container" key={action.id} onClick={() => handleClick(action)} >
-            <span className='action-item'>{action.name}</span>
+            <span className='action'>{action.name}</span>
           </div>
         )
       })

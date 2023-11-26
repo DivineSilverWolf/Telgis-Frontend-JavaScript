@@ -31,9 +31,15 @@ export default class UserService {
     // )
   }
 
-  static async postUserLocationBuUserId(userId, {latitude, longitude}) {
+
+  static async postUserLocationByUserId(userId, {latitude, longitude}) {
     return await axios.post("http://localhost/user/" + userId, {latitude, longitude})
       .then( res => console.log(res))
       .catch(e => console.log(e))
   }
+
+
+  // static async postFriendInvitation(userId, frinedId) {
+  //   return await axios.post("http://localhost/users");
+  // }
 }
