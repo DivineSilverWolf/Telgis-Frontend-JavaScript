@@ -1,6 +1,6 @@
 .find-users-container {
   width: 343px;
-  max-height: 449px;
+  max-height:395px  ;
 
   background-color: rgb(255, 255, 255, 0.8);
   text-align: center;
@@ -9,7 +9,7 @@
   border-radius: 20px;
 }
 
-.find-users-container::placeholder { /* Most modern browsers support this now. */
+::placeholder { /* Most modern browsers support this now. */
   color:  #35829F;
 }
 
@@ -41,7 +41,7 @@
 .users-container {
   overflow: scroll;
   overflow-x: hidden;
-  height: 294px;
+  height: 240px;
 }
 
 .users-container > * + *{

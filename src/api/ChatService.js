@@ -5,4 +5,7 @@ export default class ChatService {
     return axios.get("http://localhost/chats", {params : {userId}})
   }
 
+  static async getChatByChatId(userId, chatId) {
+    return axios.get("http://localhost/chats/" + chatId, {params : {userId}})
+  }
 }

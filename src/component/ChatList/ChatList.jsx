@@ -1,10 +1,12 @@
-import { React, useState, useMemo } from 'react'
+import { React, useState, useMemo, useContext } from 'react'
 import Chat  from '../ChatPreview/ChatPreview'
 import Emma from '../../images/Emma.jpg'
 import './ChatList.css'
-
+import { ChatContext } from '../../context/ChatContext.js'
+import ChatPreview from '../ChatPreview/ChatPreview'
 
 const ChatList = ({ searchedQuery }) => {
+
   const [chats, setChats] = useState([
       {
         id : 1,
@@ -63,8 +65,9 @@ const ChatList = ({ searchedQuery }) => {
   return  (
     <ul className="chat-list-wrapper">
       { searchedChats.map((chat) => {
-        return <Chat 
+        return <ChatPreview 
           key={chat.id}
+          id={chat.id}
           img={chat.img}
           chat_name={chat.chat_name} 
           last_message={chat.last_message}/>

@@ -29,9 +29,7 @@ const AdditionalOpportunityBar = () => {
 
   return (
     <div className='app-opp-container'>
-      {/* <OpenAddOppButton isAvalible={isAvalible} setIsAvalible={setIsAvalible} /> */}
       <TelgisButton img={showAddOppBar} visible={isAvalible} setVisible={setIsAvalible} />
-
       {
       isAvalible &&
         <nav className="nav-options-container">

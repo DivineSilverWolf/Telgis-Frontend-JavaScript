@@ -22,7 +22,6 @@ const LeftBar = () => {
         <ChatList searchedQuery={searchedQuery}/>
       </div>
       :
-
       <TelgisButton img={showChatListButton} visible={visible} setVisible={setVisible} />
   )
 }

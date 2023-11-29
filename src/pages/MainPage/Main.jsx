@@ -6,14 +6,29 @@ import AdditionalOpportunityContext from '../../context/AdditionalOpportunityCon
 import AdditionalOpportunityItem from '../../component/AdditionalOpportunityItem/AdditionalOpportunityItem'
 
 import './Main.css'
+import ChatBar from '../../component/ChatBar/ChatBar'
+import { ChatContext } from '../../context/ChatContext'
 
 const Main = () => {
   const [additionalOpportunityId, setAdditionalOpprtunityId] = useState(-1)
 
+  const [chatBarVisible, setChatBarVisible] = useState(false)
+  const [chatId, setChatId] = useState(-1)
+  const [chatName, setChatName] = useState('')
+
   return (
     <div className='main-page-container'>
-      {/* <MyMap /> */}
-      <LeftBar />
+      <MyMap />
+
+      <ChatContext.Provider value={[
+        {chatId, setChatId},
+        {chatBarVisible, setChatBarVisible},
+        {chatName, setChatName}]}> 
+
+        <LeftBar />
+        { chatBarVisible && <ChatBar/> }
+      </ChatContext.Provider>
+
 
       <AdditionalOpportunityContext.Provider value={[additionalOpportunityId, setAdditionalOpprtunityId]}>
         <AdditionalOpportunityItem/>

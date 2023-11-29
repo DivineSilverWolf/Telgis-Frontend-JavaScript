@@ -7,6 +7,7 @@
   position: relative;
   display: inline-block;
   animation: burger 0.1s ;
+  min-width: 467px;
 }
 
 .show-chats-button {

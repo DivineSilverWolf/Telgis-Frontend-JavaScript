@@ -8,10 +8,10 @@ const UserActionsBar = () => {
       id: 1,
       name: 'Добавить друга' 
     },
-    {
-      id: 2,
-      name: 'Удалить друга' 
-    }
+    // {
+    //   id: 2,
+    //   name: 'Удалить друга' 
+    // }
   ]
 
   const handleClick = (action) => {
