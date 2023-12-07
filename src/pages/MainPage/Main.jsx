@@ -18,13 +18,13 @@ const Main = () => {
 
   return (
     <div className='main-page-container'>
-      <MyMap />
 
       <ChatContext.Provider value={[
         {chatId, setChatId},
         {chatBarVisible, setChatBarVisible},
         {chatName, setChatName}]}> 
 
+        <MyMap />
         <LeftBar />
         { chatBarVisible && <ChatBar/> }
       </ChatContext.Provider>

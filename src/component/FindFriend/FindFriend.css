@@ -9,10 +9,6 @@
   border-radius: 20px;
 }
 
-::placeholder { /* Most modern browsers support this now. */
-  color:  #35829F;
-}
-
 .find-users-container > * + * {
   margin-top: 20px;
 }

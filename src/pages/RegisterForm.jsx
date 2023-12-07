@@ -1,23 +1,30 @@
 import { React, useContext, useState } from 'react';
 import { Link } from "react-router-dom"
-import "./AuthForm.css"
 import { AuthContext } from '../context/AuthContext';
 import telgis from '../images/welcomeTelgis.png'
 import UserService from '../api/UserService';
+import "./AuthForm.css"
 
 export const RegisterForm = () => {
 	const [registerFields, setRegisterFields] = useState({ login: '', password: '', confirmPassword: '' })
 	const { isAuth, setIsAuth } = useContext(AuthContext);
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault()
-		// UserService.postUser(registerFields.login, registerFields.password) 
-		setIsAuth(!isAuth)
+
+		const data = await UserService.postNewUser(registerFields.login, registerFields.password);
+
+		if (data) {
+			setIsAuth(!isAuth)
+		}
+		else {
+			console.log('register error')
+			// show error
+		}
 	}
 
 	return (
-		<div className="main">
-
+		<main className="main">
 			<div className="authorization-container">
 				<img src={telgis} alt="telgis" />
 
@@ -40,21 +47,20 @@ export const RegisterForm = () => {
 					<input
 						type="password"
 						className="form-item"
-						placeholder="Повторить пароль"
+						placeholder="Введите пароль ещё раз"
 						value={registerFields.confirmPassword}
 						onChange={e => setRegisterFields({ ...registerFields, confirmPassword: e.target.value })}
 					/>
 
 					<button className="btn">Зарегистрироваться</button>
 
-					<div className="has-account-container">
-						<span className="has-account-text">
-							Есть учетная запись?
+					<p className="change-form">
+							<span> Есть учетная запись? </span>
 							<Link to="/login"> Войти </Link>
-						</span>
-					</div>
+					</p>
+
 				</form>
 			</div>
-		</div>
+		</main>
 	)
 }

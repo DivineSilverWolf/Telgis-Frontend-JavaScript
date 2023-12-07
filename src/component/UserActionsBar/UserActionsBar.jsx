@@ -1,7 +1,32 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState, useEffect, useContext } from 'react'
+import UserService from '../../api/UserService'
+import { UserInfoContext } from '../../context/UserInfoContext'
 import './UserActionsBar.css'
 
-const UserActionsBar = () => {
+
+const UserActionsBar = ({ selectedUserLogin }) => {
+  const [friendRequests, setFriendRequests] = useState([])
+	const { userInfo, setUserInfo } = useContext(UserInfoContext)
+
+  // useEffect(() => {
+  //   getFriendConfirmation();
+  // }, [])
+
+
+  // const getFriendConfirmation = async () => {
+  //   const data = await UserService.getFriendConfirmation()
+
+  //   if (data) {
+  //     data.isFriend ?
+  //       `Пользователь ${data.login} теперь у вас в друзьях` 
+  //       :
+  //       `Пользователь ${data.login} отклонил вашу заявку в друзья` 
+  //   }
+  //   else {
+  //     `Пользователь ${data.login} отклонил вашу заявку в друзья` 
+  //   }
+  //   getFriendConfirmation();
+  // }
 
   const actions = [
     {
@@ -15,6 +40,12 @@ const UserActionsBar = () => {
   ]
 
   const handleClick = (action) => {
+    UserService.postFriendRequest(userInfo.login, selectedUserLogin)
+    if (friendRequests.includes(selectedUserLogin)) {
+
+    } 
+
+    setFriendRequests(prev => [...prev, selectedUserLogin])
     console.log(action.name)
   }
 

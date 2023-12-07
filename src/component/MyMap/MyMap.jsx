@@ -1,38 +1,38 @@
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import './MyMap.css'
 import { usePosition } from '../../hooks/usePosition';
-import { useEffect, useState } from 'react';
+import { React, useEffect, useState, useContext } from 'react';
+import { ChatContext } from '../../context/ChatContext';
 
 const MyMap = () => {
-  // const {YMapMarker} = window.ymaps3;
-
   const [zoom, setZoom] = useState(15);
   const {latitude, longitude, error} = usePosition();
+  const [{chatId, setChatId}, {chatBarVisible, setChatBarVisible}, {chatName, setChatName}] = useContext(ChatContext)
 
   const [friends, setFriends] = useState(
   [
     {
       id: 1,
-      latitude: 51,
-      longitude: 79,
+      latitude: 54.8509,
+      longitude: 83.09,
       name: 'Maxim Kurbatov'
     },
     {
       id: 2,
-      latitude: 55,
-      longitude: 47,
+      latitude: 54.851,
+      longitude: 83.09,
       name: 'Vlad Balashov',
     },
     {
       id: 3,
-      latitude: 53,
-      longitude: 48,
+      latitude: 54.8501,
+      longitude: 83.09,
       name: 'Sasha Litvinenko',
     },
     {
       id: 4,
-      latitude: 51,
-      longitude: 49,
+      latitude: 54.8504,
+      longitude: 83.09,
       name: 'Igor Epov'
     },
   ]
@@ -43,11 +43,10 @@ const MyMap = () => {
     longitude ? longitude : 10
   ]
 
-  // useEffect( async () => {
-  //   const ymaps3Reactify = await ymaps3.import('@yandex/ymaps3-reactify');
-  //   const reactify = ymaps3Reactify.reactify.bindTo(React, ReactDOM);
-  //   const {YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker} = reactify.module(ymaps3);
-  // },[])
+  const handleClick = (friend) => {
+    setChatBarVisible(true)
+    setChatName(friend.name)
+  }
 
   return (
     <div className='map-container'>
@@ -55,14 +54,16 @@ const MyMap = () => {
         <Map className='map' defaultState={{center: defaultPosition, zoom: zoom} } >
             { 
             !error &&
-              <Placemark   
+              <Placemark className='placemark'
                 geometry={[latitude, longitude]} 
 
                 properties={{
                   iconCaption : 'Me',
                 }}
-
-                onClick={() => { console.log('Маркер был нажат');}}
+                
+                options={{
+                  iconColor: 'red' 
+                }}
               /> 
             } 
             {
@@ -74,7 +75,7 @@ const MyMap = () => {
                   properties={{
                     iconCaption : friend.name,
                   }}
-                  onClick={() => { console.log('Маркер был нажат');}} 
+                  onClick={() => handleClick(friend)}
                 />
               )})
             }
