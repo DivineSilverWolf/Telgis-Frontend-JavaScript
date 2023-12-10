@@ -20,7 +20,6 @@ export const RegisterForm = () => {
 
 		if (data) {
 			setIsAuth(true)
-			// setNotification('register error')
 		}
 		else {
 			setNotification('register error')

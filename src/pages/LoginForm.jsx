@@ -26,7 +26,7 @@ export const LoginForm = () => {
 		}
 		else {
 			setNotification('login error')
-			setIsAuth(true)
+			// setIsAuth(true)
 		}
 	}
 
