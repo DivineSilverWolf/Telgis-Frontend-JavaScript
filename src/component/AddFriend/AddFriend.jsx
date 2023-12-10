@@ -24,9 +24,10 @@ const AddFriend = () => {
     newUsers.then(
       newUsers => {
         if (!newUsers) {
-          setNotification('Ошибка при получении списка людей')
+          setNotification('Ошибка при получении списка пользователей')
         }
         else {
+          setNotification('Успешно получили список пользователей')
           setUsers(newUsers)
         }
       }

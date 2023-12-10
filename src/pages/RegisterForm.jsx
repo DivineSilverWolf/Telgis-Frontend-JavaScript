@@ -20,9 +20,11 @@ export const RegisterForm = () => {
 
 		if (data) {
 			setIsAuth(true)
+      setNotification('Успешная регистрация!!!');
 		}
 		else {
-			setNotification('register error')
+			setNotification('Ошибка при регистрации учетки')
+			// setIsAuth(true)
 		}
 	}
 

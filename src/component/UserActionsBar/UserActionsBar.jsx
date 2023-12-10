@@ -7,7 +7,7 @@ import { NotificationContext } from '../../context/NotificationContext'
 
 const UserActionsBar = ({ selectedUserLogin }) => {
 	const { userInfo, setUserInfo } = useContext(UserInfoContext)
-	const {notification, setNotification} = useContext(NotificationContext)
+	const { notification, setNotification } = useContext(NotificationContext)
 
   // useEffect(() => {
   //   getFriendConfirmation();
@@ -40,10 +40,13 @@ const UserActionsBar = ({ selectedUserLogin }) => {
     // }
   ]
 
-  const handleClick = (action) => {
-    const res = UserService.postFriendRequest(userInfo.login, selectedUserLogin)
+  const handleClick = async () => {
+    const res = await UserService.postFriendRequest(userInfo.login, selectedUserLogin)
 
-    if (!res) {
+    if (res) {
+      setNotification(`Заявка в друзья отправлена пользователю ${selectedUserLogin}`)
+    }
+    else {
       setNotification('Ошибка при отправке заявки в друзья')
     }
   }

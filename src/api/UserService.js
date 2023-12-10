@@ -14,6 +14,24 @@ export default class UserService {
   //     .catch(e => console.log(e))
   // }
 
+  // static async getFriendsLocation(login, password) {
+  //   try {
+  //     const res = await axios.post(`${this.base_url}/registration`, { login, password })
+
+  //     if (res.ok) {
+  //       return res
+  //     }
+
+  //     console.log("Error: " + res.status + res.statusText)
+  //     return null
+  //   }
+
+  //   catch(e) {
+  //     console.log(e)
+  //     return null
+  //   }
+  // }
+
   static async postNewUser(login, password) {
     try {
       const res = await axios.post(`${this.base_url}/registration`, { login, password })
@@ -52,10 +70,22 @@ export default class UserService {
     }
   }
 
-  static async postUserLocationByUserId(userId, {latitude, longitude}) {
-    return await axios.post("http://localhost/user/" + userId, {latitude, longitude})
-      .then(res => console.log(res))
-      .catch(e => console.log(e))
+  static async postUserLocationByUserId(login, latitude, longitude) {
+    try {
+      const res = await axios.post(`${this.base_url}/location/${login}`, {latitude, longitude});
+       
+      if (res.ok) {
+        return res.data
+      }
+
+      console.log("Не удалось отправить свою локацию: " + res.status + res.statusText)
+      return null
+    }
+
+    catch(e) {
+      console.log(e)
+      return null
+    }
   }
 
   static async postFriendRequest(myLogin, friendLogin) {

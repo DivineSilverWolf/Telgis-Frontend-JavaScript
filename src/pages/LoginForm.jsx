@@ -23,10 +23,12 @@ export const LoginForm = () => {
 
 		if (data) {
 			setUserInfo( { login : loginFields.login, password : loginFields.password } )
+      setNotification('Успешное залогинились!!!');
+			setIsAuth(true)
 		}
 		else {
-			setNotification('login error')
-			// setIsAuth(true)
+			setNotification('Ошибка при входе в учетку')
+			setIsAuth(true)
 		}
 	}
 

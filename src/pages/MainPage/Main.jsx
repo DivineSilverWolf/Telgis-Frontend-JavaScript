@@ -8,6 +8,7 @@ import AdditionalOpportunityItem from '../../component/AdditionalOpportunityItem
 import './Main.css'
 import ChatBar from '../../component/ChatBar/ChatBar'
 import { ChatContext } from '../../context/ChatContext'
+import UserService from '../../api/UserService'
 
 const Main = () => {
   const [additionalOpportunityId, setAdditionalOpprtunityId] = useState(-1)
@@ -15,6 +16,7 @@ const Main = () => {
   const [chatBarVisible, setChatBarVisible] = useState(false)
   const [chatId, setChatId] = useState(-1)
   const [chatName, setChatName] = useState('')
+
 
   return (
     <div className='main-page-container'>
