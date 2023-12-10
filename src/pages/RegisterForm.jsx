@@ -6,20 +6,22 @@ import { NotificationContext } from '../context/NotificationContext';
 import telgis from '../images/welcomeTelgis.png'
 import UserService from '../api/UserService';
 import "./AuthForm.css"
+import { UserInfoContext } from '../context/UserInfoContext';
 
 export const RegisterForm = () => {
-	const [registerFields, setRegisterFields] = useState({ login: '', password: '', confirmPassword: '' })
-
+	const [registerFields, setRegisterFields] = useState({ login: '', password_hash: '', confirmPassword: '' })
+	// const {userInfo, setUserInfo} = useContext(UserInfoContext)
 	const { notification, setNotification } = useContext(NotificationContext)
 	const { isAuth, setIsAuth } = useContext(AuthContext);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 
-		const data = await UserService.postNewUser(registerFields.login, registerFields.password);
+		const data = await UserService.postNewUser(registerFields.login, registerFields.password_hash);
 
 		if (data) {
 			setIsAuth(true)
+			// setUserInfo( { login : loginFields.login, password_hash : loginFields.password_hash } )
       setNotification('Успешная регистрация!!!');
 		}
 		else {

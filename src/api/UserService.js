@@ -32,9 +32,9 @@ export default class UserService {
   //   }
   // }
 
-  static async postNewUser(login, password) {
+  static async postNewUser(login, password_hash) {
     try {
-      const res = await axios.post(`${this.base_url}/registration`, { login, password })
+      const res = await axios.post(`${this.base_url}/registration`, { login, password_hash })
 
       if (res.ok) {
         return res

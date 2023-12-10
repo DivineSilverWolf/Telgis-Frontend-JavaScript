@@ -9,7 +9,7 @@ import { NotificationContext } from '../context/NotificationContext';
 import { AuthContext } from '../context/AuthContext';
 
 export const LoginForm = () => {
-	const [loginFields, setLoginFields] = useState({ login: '', password: ''})
+	const [loginFields, setLoginFields] = useState({ login: '', password_hash: ''})
 	const {userInfo, setUserInfo} = useContext(UserInfoContext)
 	const {notification, setNotification} = useContext(NotificationContext)
 	const { isAuth, setIsAuth } = useContext(AuthContext);
@@ -19,7 +19,7 @@ export const LoginForm = () => {
 
 		// validate
 
-		const data = await UserService.postRegisterUser(loginFields.login, loginFields.password)
+		const data = await UserService.postRegisterUser(loginFields.login, loginFields.password_hash)
 
 		if (data) {
 			setUserInfo( { login : loginFields.login, password : loginFields.password } )
