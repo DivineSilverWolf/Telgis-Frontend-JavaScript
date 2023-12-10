@@ -18,7 +18,6 @@ const LeftBar = () => {
           visible={visible} 
           setVisible={() => setVisible(!visible) }
         />
-
         <ChatList searchedQuery={searchedQuery}/>
       </div>
       :

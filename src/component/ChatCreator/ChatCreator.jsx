@@ -1,12 +1,15 @@
-import { React, useState, useMemo} from 'react'
+import { React, useState, useMemo, useContext} from 'react'
 import Emma from '../../images/Emma.jpg'
-import './ChatCreator.css'
 import FindFriend from '../FindFriend/FindFriend'
+import AdditionalOpporunityContext from '../../context/AdditionalOpportunityContext'
+
+import './ChatCreator.css'
 
 const ChatCreator = () => {
   const [chatName, setChatName] = useState('')
   const [friendName, setFriendName] = useState('')
   const [selectedFriends, setSelectedFriends] = useState([])
+  const [id, setId] = useContext(AdditionalOpporunityContext)
 
   const friends = [
     {
@@ -58,9 +61,13 @@ const ChatCreator = () => {
     setIsSelected(prev => !prev)
   }
 
+  const handleClickToArea = () => {
+    setId(-1)
+  }
+
   return (
-    <div className="t">
-      <form className='chat-creator-container'>
+    <div className="chat-creator-container "  onClick={handleClickToArea}>
+      <form className='chat-creator' onClick={e => e.stopPropagation()}>
         <input  className="chat-name-input" 
           type="text"
           value={chatName}
@@ -70,7 +77,7 @@ const ChatCreator = () => {
 
         <FindFriend/>
 
-        <button className="create-chat" onClick={createChat}>
+        <button className="create-chat-btn" onClick={createChat}>
           Создать чат
         </button>
       </form>

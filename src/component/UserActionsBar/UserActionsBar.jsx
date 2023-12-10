@@ -2,11 +2,12 @@ import { React, useState, useEffect, useContext } from 'react'
 import UserService from '../../api/UserService'
 import { UserInfoContext } from '../../context/UserInfoContext'
 import './UserActionsBar.css'
+import { NotificationContext } from '../../context/NotificationContext'
 
 
 const UserActionsBar = ({ selectedUserLogin }) => {
-  const [friendRequests, setFriendRequests] = useState([])
 	const { userInfo, setUserInfo } = useContext(UserInfoContext)
+	const {notification, setNotification} = useContext(NotificationContext)
 
   // useEffect(() => {
   //   getFriendConfirmation();
@@ -18,12 +19,12 @@ const UserActionsBar = ({ selectedUserLogin }) => {
 
   //   if (data) {
   //     data.isFriend ?
-  //       `Пользователь ${data.login} теперь у вас в друзьях` 
+  //       setNotification(`Пользователь ${data.login} теперь у вас в друзьях`)
   //       :
-  //       `Пользователь ${data.login} отклонил вашу заявку в друзья` 
+  //       setNotification(`Пользователь ${data.login} отклонил вашу заявку в друзья`)
   //   }
   //   else {
-  //     `Пользователь ${data.login} отклонил вашу заявку в друзья` 
+  //     setNotification(`Пользователь ${data.login} отклонил вашу заявку в друзья`)
   //   }
   //   getFriendConfirmation();
   // }
@@ -40,13 +41,11 @@ const UserActionsBar = ({ selectedUserLogin }) => {
   ]
 
   const handleClick = (action) => {
-    UserService.postFriendRequest(userInfo.login, selectedUserLogin)
-    if (friendRequests.includes(selectedUserLogin)) {
+    const res = UserService.postFriendRequest(userInfo.login, selectedUserLogin)
 
-    } 
-
-    setFriendRequests(prev => [...prev, selectedUserLogin])
-    console.log(action.name)
+    if (!res) {
+      setNotification('Ошибка при отправке заявки в друзья')
+    }
   }
 
   return (

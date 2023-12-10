@@ -1,0 +1,18 @@
+.notification-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.notification {
+  background-color: #FFFFFFCC;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.notification p {
+  color: #35829F;
+}
+

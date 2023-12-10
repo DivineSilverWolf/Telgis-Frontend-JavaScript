@@ -1,11 +1,11 @@
 import { React, useState, useContext } from 'react'
 import AdditionalOpporunityContext from '../../context/AdditionalOpportunityContext.js'
 import {AdditionalOpportunityItems} from '../../utils/AdditionalOpportunityItems.js'
-
-import "./AdditionalOpportunityBar.css"
 import { AuthContext } from '../../context/AuthContext.js'
 import TelgisButton from '../TelgisButton/TelgisButton.jsx'
-import showAddOppBar from '../../images/showAddOppBar.svg'
+import showAddOppBar from '../../images/AddOppBar.png'
+
+import "./AdditionalOpportunityBar.css"
 
 const AdditionalOpportunityBar = () => {
   const [isAvalible, setIsAvalible] = useState(false);

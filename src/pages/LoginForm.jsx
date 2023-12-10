@@ -5,12 +5,16 @@ import UserService from '../api/UserService';
 
 import './AuthForm.css'
 import { UserInfoContext } from '../context/UserInfoContext';
+import { NotificationContext } from '../context/NotificationContext';
+import { AuthContext } from '../context/AuthContext';
 
 export const LoginForm = () => {
 	const [loginFields, setLoginFields] = useState({ login: '', password: ''})
 	const {userInfo, setUserInfo} = useContext(UserInfoContext)
+	const {notification, setNotification} = useContext(NotificationContext)
+	const { isAuth, setIsAuth } = useContext(AuthContext);
 
-	const  handleSubmit = async(e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault()
 
 		// validate
@@ -21,7 +25,8 @@ export const LoginForm = () => {
 			setUserInfo( { login : loginFields.login, password : loginFields.password } )
 		}
 		else {
-			console.log('login error')
+			setNotification('login error')
+			setIsAuth(true)
 		}
 	}
 

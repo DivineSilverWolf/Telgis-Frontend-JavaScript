@@ -13,7 +13,6 @@ export default class UserService {
   //     .then(res => console.log(res))
   //     .catch(e => console.log(e))
   // }
-  // 
 
   static async postNewUser(login, password) {
     try {
@@ -95,7 +94,26 @@ export default class UserService {
     }
   }
 
-  // static async postFriendInvitation(userId, frinedId) {
-  //   return await axios.post("http://localhost/users");
-  // }
+  static async postFriendInvitation(userId, frinedId) {
+    return await axios.post("http://localhost/users");
+  }
+
+  static async getUsers(login) {
+    try {
+      const res = await axios.get(`${this.base_url}/friends/${login}`)
+
+      if (res.ok) {
+        return res.data
+      }
+
+      console.log("Ошибка при получении друзей: " + res.status + res.statusText)
+      return null
+    }
+
+    catch(e) {
+      console.log(e)
+      return null
+    }
+  }
+
 }

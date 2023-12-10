@@ -1,5 +1,5 @@
 .user-info-container {
-  max-width: 85%;
+  max-width: 90%;
   max-height: 67px;
   background-color: #FFFFFFCC;
   border-radius: 20px;
@@ -10,6 +10,10 @@
 
 .user-info-container > * + * {
   margin-left: 10px;
+}
+
+.user-info-container:hover {
+  background: white;
 }
 
 .user-image {

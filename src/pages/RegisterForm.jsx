@@ -1,12 +1,16 @@
 import { React, useContext, useState } from 'react';
 import { Link } from "react-router-dom"
 import { AuthContext } from '../context/AuthContext';
+import { NotificationContext } from '../context/NotificationContext';
+
 import telgis from '../images/welcomeTelgis.png'
 import UserService from '../api/UserService';
 import "./AuthForm.css"
 
 export const RegisterForm = () => {
 	const [registerFields, setRegisterFields] = useState({ login: '', password: '', confirmPassword: '' })
+
+	const { notification, setNotification } = useContext(NotificationContext)
 	const { isAuth, setIsAuth } = useContext(AuthContext);
 
 	const handleSubmit = async (e) => {
@@ -15,11 +19,11 @@ export const RegisterForm = () => {
 		const data = await UserService.postNewUser(registerFields.login, registerFields.password);
 
 		if (data) {
-			setIsAuth(!isAuth)
+			setIsAuth(true)
+			// setNotification('register error')
 		}
 		else {
-			console.log('register error')
-			// show error
+			setNotification('register error')
 		}
 	}
 
