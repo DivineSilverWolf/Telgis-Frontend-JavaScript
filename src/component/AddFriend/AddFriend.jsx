@@ -64,7 +64,7 @@ const AddFriend = () => {
           </div>
         </div>
 
-        <UserActionsBar />
+        <UserActionsBar user={selectedFriend}/>
       </div>
     </div>
   )

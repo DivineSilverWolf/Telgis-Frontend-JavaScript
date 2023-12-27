@@ -19,6 +19,8 @@ const MyMap = () => {
   const [friends, setFriends] = useState([]);
 
   useEffect(() => {
+    console.log(latitude, longitude)
+
     UserService.postUserLocationByUserId(userInfo.login, latitude, longitude)
       .then(res => {
         if (!res) {
