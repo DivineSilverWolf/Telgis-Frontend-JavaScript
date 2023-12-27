@@ -28,7 +28,7 @@ export const LoginForm = () => {
 		}
 		else {
 			setNotification('Ошибка при входе в учетку')
-			setIsAuth(true)
+			// setIsAuth(true)
 		}
 	}
 

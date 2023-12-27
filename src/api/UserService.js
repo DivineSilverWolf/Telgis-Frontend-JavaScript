@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default class UserService {
-  static base_url = "http://85.193.80.248:8000/api/docs"
+  static base_url = "http://85.193.80.248:8000"
 
   // static async getUsersFromChat(chatId) {
   //   const users = await axios.get(`${this.base_url}/chats/` + chatId)
