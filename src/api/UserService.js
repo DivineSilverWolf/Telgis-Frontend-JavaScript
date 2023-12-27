@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default class UserService {
-  static base_url = "http://localhost:8000"
+  static base_url = "http://85.193.80.248:8000/api/docs"
 
   // static async getUsersFromChat(chatId) {
   //   const users = await axios.get(`${this.base_url}/chats/` + chatId)
@@ -14,33 +14,32 @@ export default class UserService {
   //     .catch(e => console.log(e))
   // }
 
-  // static async getFriendsLocation(login, password) {
-  //   try {
-  //     const res = await axios.post(`${this.base_url}/registration`, { login, password })
+  static async getFriendsLocation(login) {
+    try {
+      const res = await axios.post(`${this.base_url}/location`, { login })
 
-  //     if (res.ok) {
-  //       return res
-  //     }
+      if (res.status === 200) {
+        return res
+      }
 
-  //     console.log("Error: " + res.status + res.statusText)
-  //     return null
-  //   }
+      console.log("Error: " + res.status + res.statusText)
+      return null
+    }
 
-  //   catch(e) {
-  //     console.log(e)
-  //     return null
-  //   }
-  // }
+    catch(e) {
+      console.log(e)
+      return null
+    }
+  }
 
-  static async postNewUser(login, password_hash) {
+  static async postNewUser(login, password) {
     try {
       const res = await axios.post(
         `${this.base_url}/registration`,
-        { login, password_hash },
-        { headers: { 'Content-Type': 'application/json' }}
+        { login, password },
       )
 
-      if (res.ok) {
+      if (res.status === 200) {
         return res
       }
 
@@ -60,7 +59,7 @@ export default class UserService {
       
       console.log(res)
 
-      if (res.ok) {
+      if (res.status === 200) {
         return res.data
       }
 
@@ -78,7 +77,7 @@ export default class UserService {
     try {
       const res = await axios.post(`${this.base_url}/location/${login}`, {latitude, longitude});
        
-      if (res.ok) {
+      if (res.status === 200) {
         return res.data
       }
 
@@ -96,7 +95,7 @@ export default class UserService {
     try {
       const res = await axios.post(`${this.base_url}/friends/add/${friendLogin}`, { myLogin })
 
-      if (res.ok) {
+      if (res.status === 200) {
         return res.data
       }
 
@@ -114,7 +113,7 @@ export default class UserService {
     try {
       const res = await axios.get(`${this.base_url}/friends/confirm/`)
 
-      if (res.ok) {
+      if (res.status === 200) {
         return res.data
       }
 
@@ -136,7 +135,7 @@ export default class UserService {
     try {
       const res = await axios.get(`${this.base_url}/friends/${login}`)
 
-      if (res.ok) {
+      if (res.status === 200) {
         return res.data
       }
 

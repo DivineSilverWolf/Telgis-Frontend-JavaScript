@@ -9,19 +9,24 @@ import "./AuthForm.css"
 import { UserInfoContext } from '../context/UserInfoContext';
 
 export const RegisterForm = () => {
-	const [registerFields, setRegisterFields] = useState({ login: '', password_hash: '', confirmPassword: '' })
-	// const {userInfo, setUserInfo} = useContext(UserInfoContext)
+	const [registerFields, setRegisterFields] = useState({ login: '', password: '', confirmPassword: '' })
+	const {userInfo, setUserInfo} = useContext(UserInfoContext)
 	const { notification, setNotification } = useContext(NotificationContext)
 	const { isAuth, setIsAuth } = useContext(AuthContext);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 
-		const data = await UserService.postNewUser(registerFields.login, registerFields.password_hash);
+		if (registerFields.password !== registerFields.confirmPassword) {
+      setNotification('Пароли не совпадают')
+			return
+		}
+
+		const data = await UserService.postNewUser(registerFields.login, registerFields.password);
 
 		if (data) {
 			setIsAuth(true)
-			// setUserInfo( { login : loginFields.login, password_hash : loginFields.password_hash } )
+			setUserInfo( { login : registerFields.login, password : registerFields.password } )
       setNotification('Успешная регистрация!!!');
 		}
 		else {

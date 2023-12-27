@@ -15,6 +15,9 @@ const MyMap = () => {
 	const {userInfo, setUserInfo} = useContext(UserInfoContext)
 	const {notification, setNotification} = useContext(NotificationContext)
 
+
+  const [friends, setFriends] = useState([]);
+
   useEffect(() => {
     UserService.postUserLocationByUserId(userInfo.login, latitude, longitude)
       .then(res => {
@@ -25,39 +28,19 @@ const MyMap = () => {
           setNotification('Успешно отправили данные о своей позиции');
         }
       })
+      .catch(e => setNotification('Не получилось получить данные о местоположении пользователей'))
 
-      // UserService.getLocations();
+    UserService.getFriendsLocation(userInfo.login)
+      .then(friendsLocations => {
+        if (friendsLocations) {
+          setFriends(friendsLocations);
+        }
+        else {
+          setNotification('Не получилось получить данные о местоположении пользователей');
+        }
+      })
+      .catch(e => setNotification('Не получилось получить данные о местоположении пользователей'))
   },[])
-
-
-  const [friends, setFriends] = useState(
-  [
-    // {
-    //   id: 1,
-    //   latitude: 54.8509,
-    //   longitude: 83.09,
-    //   name: 'Maxim Kurbatov'
-    // },
-    // {
-    //   id: 2,
-    //   latitude: 54.851,
-    //   longitude: 83.09,
-    //   name: 'Vlad Balashov',
-    // },
-    // {
-    //   id: 3,
-    //   latitude: 54.8501,
-    //   longitude: 83.09,
-    //   name: 'Sasha Litvinenko',
-    // },
-    // {
-    //   id: 4,
-    //   latitude: 54.8504,
-    //   longitude: 83.09,
-    //   name: 'Igor Epov'
-    // },
-  ]
-  );
 
   const defaultPosition = [
     latitude ? latitude : 10,

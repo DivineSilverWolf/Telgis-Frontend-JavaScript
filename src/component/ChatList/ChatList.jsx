@@ -8,40 +8,40 @@ import ChatPreview from '../ChatPreview/ChatPreview'
 const ChatList = ({ searchedQuery }) => {
 
   const [chats, setChats] = useState([
-      {
-        id : 1,
-        img : Emma,
-        chat_name : "hello",
-        last_message : "hello1"
-      },
+      // {
+      //   id : 1,
+      //   img : Emma,
+      //   chat_name : "hello",
+      //   last_message : "hello1"
+      // },
 
-      {
-        id : 2,
-        img : Emma,
-        chat_name : "helsing",
-        last_message : "hello2"
-      },
+      // {
+      //   id : 2,
+      //   img : Emma,
+      //   chat_name : "helsing",
+      //   last_message : "hello2"
+      // },
 
-      {
-        id : 3,
-        img : Emma,
-        chat_name : "gotcha",
-        last_message : "hello2"
-      },
+      // {
+      //   id : 3,
+      //   img : Emma,
+      //   chat_name : "gotcha",
+      //   last_message : "hello2"
+      // },
 
-      {
-        id : 4,
-        img : Emma,
-        chat_name : "emma mayers",
-        last_message : "hello2"
-      },
+      // {
+      //   id : 4,
+      //   img : Emma,
+      //   chat_name : "emma mayers",
+      //   last_message : "hello2"
+      // },
 
-      {
-        id : 5,
-        img : Emma,
-        chat_name : "chat",
-        last_message : "hello2"
-      }
+      // {
+      //   id : 5,
+      //   img : Emma,
+      //   chat_name : "chat",
+      //   last_message : "hello2"
+      // }
     ]
   )
 
