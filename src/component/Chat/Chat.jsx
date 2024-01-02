@@ -9,36 +9,36 @@ const Chat = ({chatId, setChatId, isChatVisible, setIsChatVisible, chatName, set
 
   const [message, setMessage] = useState('')
   const [messages, setMessages] = useState([
-    {
-      id : 1,
-      text: "Привет!",
-      userId: "jenya" 
-    },
-    {
-      id : 2,
-      text: "Привет, это кто?",
-      userId: "masha" 
-    },
-    {
-      id : 3,
-      text: "Это Пригожин Женя",
-      userId: "jenya" 
-    },
-    {
-      id : 4,
-      text: "А, здорова! А я Кирилл Буданов",
-      userId: "emma" 
-    },
-    {
-      id : 5,
-      text: "Че, как у тебя дела?",
-      userId: "jenya" 
-    },
-    {
-      id : 10,
-      text: "Нормально! ",
-      userId: "emma" 
-    }
+    // {
+    //   id : 1,
+    //   text: "Привет!",
+    //   userId: "jenya" 
+    // },
+    // {
+    //   id : 2,
+    //   text: "Привет, это кто?",
+    //   userId: "masha" 
+    // },
+    // {
+    //   id : 3,
+    //   text: "Это Пригожин Женя",
+    //   userId: "jenya" 
+    // },
+    // {
+    //   id : 4,
+    //   text: "А, здорова! А я Кирилл Буданов",
+    //   userId: "emma" 
+    // },
+    // {
+    //   id : 5,
+    //   text: "Че, как у тебя дела?",
+    //   userId: "jenya" 
+    // },
+    // {
+    //   id : 10,
+    //   text: "Нормально! ",
+    //   userId: "emma" 
+    // }
   ])
 
   useEffect( () => {

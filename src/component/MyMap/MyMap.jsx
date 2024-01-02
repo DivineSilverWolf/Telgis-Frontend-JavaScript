@@ -15,43 +15,33 @@ const MyMap = () => {
 	const {userInfo, setUserInfo} = useContext(UserInfoContext)
 	const {notification, setNotification} = useContext(NotificationContext)
 
-  // useEffect(() => {
-  //   UserService.postUserLocationByUserId(userInfo.login, latitude, longitude)
-  //     .then(res => {
-  //       if (!res) {
-  //         setNotification('Не получилось отправить данные о своей позиции');
-  //       }
-  //       else {
-  //         setNotification('Успешно отправили данные о своей позиции');
-  //       }
-  //     })
+  const [friends, setFriends] = useState([]);
 
-  //     // UserService.getLocations();
-  // },[])
+  useEffect(() => {
+    console.log(latitude, longitude)
 
+    UserService.postUserLocationByUserId(userInfo.login, latitude, longitude)
+      .then(res => {
+        if (!res) {
+          setNotification('Не получилось отправить данные о своей позиции');
+        }
+        else {
+          setNotification('Успешно отправили данные о своей позиции');
+        }
+      })
+      .catch(e => setNotification('Не получилось получить данные о местоположении пользователей'))
 
-  const [friends, setFriends] = useState(
-  [
-    {
-      id: 1,
-      latitude: 54.8509,
-      longitude: 83.09,
-      name: 'Maxim Kurbatov'
-    },
-    {
-      id: 2,
-      latitude: 54.845,
-      longitude: 83.09,
-      name: 'Vlad Balashov',
-    },
-    {
-      id: 3,
-      latitude: 54.842,
-      longitude: 83.09,
-      name: 'Sasha Litvinenko',
-    }
-  ]
-  );
+    UserService.getFriendsLocation(userInfo.login)
+      .then(friendsLocations => {
+        if (friendsLocations) {
+          setFriends(friendsLocations);
+        }
+        else {
+          setNotification('Не получилось получить данные о местоположении пользователей');
+        }
+      })
+      .catch(e => setNotification('Не получилось получить данные о местоположении пользователей'))
+  },[])
 
   const defaultPosition = [
     latitude ? latitude : 10,

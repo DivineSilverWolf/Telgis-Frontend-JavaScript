@@ -17,25 +17,18 @@ export const LoginForm = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 
+		const data = await UserService.postRegisterUser(loginFields.login, loginFields.password)
+
+		if (data) {
 			setUserInfo( { login : loginFields.login, password : loginFields.password } )
-      setNotification('Успешный вход в систему');
+      setNotification('Успешное залогинились!!!');
 			setIsAuth(true)
-			return
-
-		// validate
-
-		// // const data = await UserService.postRegisterUser(loginFields.login, loginFields.password)
-
-		// if (data) {
-		// 	setUserInfo( { login : loginFields.login, password : loginFields.password } )
-    //   setNotification('Успешное залогинились!!!');
-		// 	setIsAuth(true)
-		// }
-		// else {
-		// 	// setNotification('Ошибка при входе в учетку')
-		// 	setIsAuth(true)
-		// 	// setIsAuth(true)
-		// }
+		}
+		else {
+			// setNotification('Ошибка при входе в учетку')
+			setIsAuth(true)
+			// setIsAuth(true)
+		}
 	}
 
 	return (

@@ -14,31 +14,32 @@ export default class UserService {
   //     .catch(e => console.log(e))
   // }
 
-  // static async getFriendsLocation(login, password) {
-  //   try {
-  //     const res = await axios.post(`${this.base_url}/registration`, { login, password })
+  static async getFriendsLocation(login) {
+    try {
+      const res = await axios.post(`${this.base_url}/location`, { login })
 
-  //     if (res.ok) {
-  //       return res
-  //     }
+      if (res.status === 200) {
+        return res
+      }
 
-  //     console.log("Error: " + res.status + res.statusText)
-  //     return null
-  //   }
+      console.log("Error: " + res.status + res.statusText)
+      return null
+    }
 
-  //   catch(e) {
-  //     console.log(e)
-  //     return null
-  //   }
-  // }
+    catch(e) {
+      console.log(e)
+      return null
+    }
+  }
 
   static async postNewUser(login, password) {
     try {
-      const res = await axios.post(`${this.base_url}/registration`, { login, password })
+      const res = await axios.post(
+        `${this.base_url}/registration`,
+        { login, password },
+      )
 
-      console.log(res)
-
-      if (res.ok()) {
+      if (res.status === 200) {
         return res
       }
 
@@ -59,7 +60,7 @@ export default class UserService {
       
       console.log(res)
 
-      if (res.ok()) {
+      if (res.status === 200) {
         return res.data
       }
 
@@ -77,7 +78,7 @@ export default class UserService {
     try {
       const res = await axios.post(`${this.base_url}/location/${login}`, {latitude, longitude});
        
-      if (res.ok) {
+      if (res.status === 200) {
         return res.data
       }
 
@@ -95,7 +96,7 @@ export default class UserService {
     try {
       const res = await axios.post(`${this.base_url}/friends/add/${friendLogin}`, { myLogin })
 
-      if (res.ok) {
+      if (res.status === 200) {
         return res.data
       }
 
@@ -113,7 +114,7 @@ export default class UserService {
     try {
       const res = await axios.get(`${this.base_url}/friends/confirm/`)
 
-      if (res.ok) {
+      if (res.status === 200) {
         return res.data
       }
 
@@ -135,7 +136,7 @@ export default class UserService {
     try {
       const res = await axios.get(`${this.base_url}/friends/${login}`)
 
-      if (res.ok) {
+      if (res.status === 200) {
         return res.data
       }
 
