@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default class UserService {
-  static base_url = "http://localhost:8000"
+  static base_url = "http://85.193.80.248:8000"
 
   // static async getUsersFromChat(chatId) {
   //   const users = await axios.get(`${this.base_url}/chats/` + chatId)
@@ -32,20 +32,19 @@ export default class UserService {
   //   }
   // }
 
-  static async postNewUser(login, password_hash) {
+  static async postNewUser(login, password) {
     try {
-      const res = await axios.post(
-        `${this.base_url}/registration`,
-        { login, password_hash },
-        { headers: { 'Content-Type': 'application/json' }}
-      )
+      const res = await axios.post(`${this.base_url}/registration`, { login, password })
 
-      if (res.ok) {
+      console.log(res)
+
+      if (res.ok()) {
         return res
       }
 
       console.log("Error: " + res.status + res.statusText)
       return null
+
     }
 
     catch(e) {
@@ -60,7 +59,7 @@ export default class UserService {
       
       console.log(res)
 
-      if (res.ok) {
+      if (res.ok()) {
         return res.data
       }
 

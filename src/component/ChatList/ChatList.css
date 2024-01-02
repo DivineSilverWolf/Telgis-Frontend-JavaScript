@@ -6,3 +6,11 @@
   margin: 0;
   padding: 0;
 }
+
+.chat-list-wrapper p {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  font-family: Imprima, sans-serif;
+  font-size: 30px;
+}

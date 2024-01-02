@@ -9,7 +9,7 @@ import "./AuthForm.css"
 import { UserInfoContext } from '../context/UserInfoContext';
 
 export const RegisterForm = () => {
-	const [registerFields, setRegisterFields] = useState({ login: '', password_hash: '', confirmPassword: '' })
+	const [registerFields, setRegisterFields] = useState({ login: '', password: '', confirmPassword: '' })
 	// const {userInfo, setUserInfo} = useContext(UserInfoContext)
 	const { notification, setNotification } = useContext(NotificationContext)
 	const { isAuth, setIsAuth } = useContext(AuthContext);
@@ -17,7 +17,7 @@ export const RegisterForm = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 
-		const data = await UserService.postNewUser(registerFields.login, registerFields.password_hash);
+		const data = await UserService.postNewUser(registerFields.login, registerFields.password);
 
 		if (data) {
 			setIsAuth(true)

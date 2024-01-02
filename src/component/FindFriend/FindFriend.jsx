@@ -9,43 +9,44 @@ const FindFriend = () => {
   const [friendName, setFriendName] = useState('')
   const [selectedFriend, setSelectedFriend] = useState(null)
 
-  const [friends, setFriends] = useState([
-      {
-        id : 1,
-        avatar : Emma,
-        userName : "hello",
-      },
+  const [friends, setFriends] = useState(
+  // [
+  //     {
+  //       id : 1,
+  //       avatar : Emma,
+  //       userName : "hello",
+  //     },
 
-      {
-        id : 2,
-        avatar : Emma,
-        userName : "helsing",
-      },
+  //     {
+  //       id : 2,
+  //       avatar : Emma,
+  //       userName : "helsing",
+  //     },
 
-      {
-        id : 3,
-        avatar : Emma,
-        userName : "gotcha",
-      },
+  //     {
+  //       id : 3,
+  //       avatar : Emma,
+  //       userName : "gotcha",
+  //     },
 
-      {
-        id : 4,
-        avatar : Emma,
-        userName : "emma mayers",
-      },
+  //     {
+  //       id : 4,
+  //       avatar : Emma,
+  //       userName : "emma mayers",
+  //     },
 
-      {
-        id : 5,
-        avatar : Emma,
-        userName : "emma mayers",
-      }
-    ]
+  //     {
+  //       id : 5,
+  //       avatar : Emma,
+  //       userName : "emma mayers",
+  //     }
+  //   ]
   )
 
-  const filterdFriends = useMemo(() => {
-      return friends.filter(friend => friend.userName.toLowerCase().includes(friendName.toLowerCase()))
-    }, [friends, friendName]
-  )
+  // const filterdFriends = useMemo(() => {
+  //     return friends.filter(friend => friend.userName.toLowerCase().includes(friendName.toLowerCase()))
+  //   }, [friends, friendName]
+  // )
 
   const handleClickToUser = (setSelectedFriend, selectedFriend, setIsSelected, isSelected, user) => {
     setIsSelected(prev => !prev)
@@ -70,7 +71,7 @@ const FindFriend = () => {
           <div className="all-users">
             <div className="users-container">
             {
-              filterdFriends.map(user => 
+              users.map(user => 
                 <User 
                   key={user.id} 
                   user={user}

@@ -9,7 +9,7 @@ import { NotificationContext } from '../context/NotificationContext';
 import { AuthContext } from '../context/AuthContext';
 
 export const LoginForm = () => {
-	const [loginFields, setLoginFields] = useState({ login: '', password_hash: ''})
+	const [loginFields, setLoginFields] = useState({ login: '', password: ''})
 	const {userInfo, setUserInfo} = useContext(UserInfoContext)
 	const {notification, setNotification} = useContext(NotificationContext)
 	const { isAuth, setIsAuth } = useContext(AuthContext);
@@ -17,19 +17,25 @@ export const LoginForm = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 
+			setUserInfo( { login : loginFields.login, password : loginFields.password } )
+      setNotification('Успешный вход в систему');
+			setIsAuth(true)
+			return
+
 		// validate
 
-		const data = await UserService.postRegisterUser(loginFields.login, loginFields.password_hash)
+		// // const data = await UserService.postRegisterUser(loginFields.login, loginFields.password)
 
-		if (data) {
-			setUserInfo( { login : loginFields.login, password : loginFields.password } )
-      setNotification('Успешное залогинились!!!');
-			setIsAuth(true)
-		}
-		else {
-			setNotification('Ошибка при входе в учетку')
-			// setIsAuth(true)
-		}
+		// if (data) {
+		// 	setUserInfo( { login : loginFields.login, password : loginFields.password } )
+    //   setNotification('Успешное залогинились!!!');
+		// 	setIsAuth(true)
+		// }
+		// else {
+		// 	// setNotification('Ошибка при входе в учетку')
+		// 	setIsAuth(true)
+		// 	// setIsAuth(true)
+		// }
 	}
 
 	return (

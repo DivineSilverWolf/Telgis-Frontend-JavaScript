@@ -10,7 +10,7 @@ const User = ({user, handleClickToUser}) => {
       className={`user-info-container ${isSelected ? ' selected' : ' noselected'}`}
       onClick={() => handleClickToUser(user) }
     >
-      <img src={Emma} alt="avatar" className='user-image'/>
+      <img src={user.avatar} alt="avatar" className='user-image'/>
         <span className='user-name'> <b> { user.login } </b> </span> 
     </div>
   )

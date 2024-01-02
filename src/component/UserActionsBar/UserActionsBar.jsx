@@ -41,14 +41,15 @@ const UserActionsBar = ({ selectedUserLogin }) => {
   ]
 
   const handleClick = async () => {
-    const res = await UserService.postFriendRequest(userInfo.login, selectedUserLogin)
+    // const res = await UserService.postFriendRequest(userInfo.login, selectedUserLogin)
 
-    if (res) {
-      setNotification(`Заявка в друзья отправлена пользователю ${selectedUserLogin}`)
-    }
-    else {
-      setNotification('Ошибка при отправке заявки в друзья')
-    }
+      setNotification(`Заявка в друзья отправлена`)
+    // if (res) {
+    //   setNotification(`Заявка в друзья отправлена пользователю ${selectedUserLogin}`)
+    // }
+    // else {
+    //   setNotification('Ошибка при отправке заявки в друзья')
+    // }
   }
 
   return (
